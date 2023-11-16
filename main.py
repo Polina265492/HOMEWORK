@@ -1,46 +1,23 @@
-def days_indexes(self, day):
-    day = f" Today the {day} of {self.name}'s life "
-    print(f"{day:=^50}","\n")
-    human_indexes = self.name + "'s indexes"
-    print(f"{human_indexes:^50}","\n")
-    print(f"Money – {self.money}")
-    print(f"Satiety – {self.satiety}")
-    print(f"Gladness – {self.gladness}")
-    home_indexes = "Home indexes"
-    print(f"{home_indexes:^50}", "\n")
-    print(f"Food – {self.home.food}")
-    print(f"Mess – {self.home.mess}")
-    car_indexes = f"{self.car.brand} car indexes"
-    print(f"{car_indexes:^50}", "\n")
-    print(f"Fuel – {self.car.fuel}")
-    print(f"Strength – {self.car.strength}")
+import requests
+from bs4 import BeautifulSoup
+import lxml
 
-    self.days_indexes(day)
-    dice= random.randint
-    if self.safiety < 20:
-        print("Ill go eat!")
-        self.eat()
-    elif self.gladness <20:
-        if self.home.mess > 15:
-            self.home.clean()
-        else:
-            print("Tims chill")
-            self.work()
-    elif self.car.strenght < 15:
-        print ("I nees to repair my car!")
-        self.to_repair()
-    if dice == 1
-        print ('start working!')
-        self.work
-    elif dice == 3
-        print('Cleaning time!')
-        self.clean.home()
-    elif dice == 4
-        print ("Time for treats")
-        self.shopping(manage ='delicacies')
+url = "https://cash-backer.club/shops"
+user = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36"
+headers = {"User-agent": user}
 
-nick = Human(name="Nick")
-for day in range(1,365):
-    if nick.live(day) == False:
-        break
-class House:
+session = requests.Session()
+
+responce = session.get(url, headers =headers)
+print(responce.status_code)
+
+if response.status_code == 200:
+    soup = BeautifulSoup(responce.text, features:"lxml")
+    elements =soup.find(name: "li", class_="class="col-lg-2 col-md-3 shop-list-card pseudo-link no-link"")
+    elements = soup.find(name: "li", class_ = "class="card-body")
+    elements = soup.find(name: "li", class_ = "class="col-lg-2 col-md-3 shop-list-card pseudo-link no-link")
+    
+    print(elements.text)
+
+
+#Я не совсем понимаю как что надо делать, программа падает, сделала все что смогла(
